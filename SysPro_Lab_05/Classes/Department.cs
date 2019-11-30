@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SysPro_Lab_05.Classes
+namespace SysPro_Lab_05
 {
     public class Department
     {
