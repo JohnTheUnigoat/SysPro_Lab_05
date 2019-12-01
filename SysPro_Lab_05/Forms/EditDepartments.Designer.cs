@@ -28,33 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.btOK = new System.Windows.Forms.Button();
+            this.cbDepartments = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.tbPhone = new System.Windows.Forms.TextBox();
+            this.tbAddress = new System.Windows.Forms.TextBox();
+            this.btAddDepartment = new System.Windows.Forms.Button();
+            this.btRemoveDepartment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // btOK
             // 
-            this.button1.Location = new System.Drawing.Point(14, 210);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 32);
-            this.button1.TabIndex = 20;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btOK.Location = new System.Drawing.Point(14, 210);
+            this.btOK.Name = "btOK";
+            this.btOK.Size = new System.Drawing.Size(280, 32);
+            this.btOK.TabIndex = 20;
+            this.btOK.Text = "OK";
+            this.btOK.UseVisualStyleBackColor = true;
             // 
-            // comboBox1
+            // cbDepartments
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(15, 12);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 24);
-            this.comboBox1.TabIndex = 19;
+            this.cbDepartments.FormattingEnabled = true;
+            this.cbDepartments.Location = new System.Drawing.Point(15, 12);
+            this.cbDepartments.Name = "cbDepartments";
+            this.cbDepartments.Size = new System.Drawing.Size(123, 24);
+            this.cbDepartments.TabIndex = 19;
             // 
             // label4
             // 
@@ -86,54 +87,66 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Name";
             // 
-            // textBox1
+            // tbName
             // 
-            this.textBox1.Location = new System.Drawing.Point(15, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 22);
-            this.textBox1.TabIndex = 22;
+            this.tbName.Location = new System.Drawing.Point(15, 74);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(279, 22);
+            this.tbName.TabIndex = 22;
             // 
-            // textBox2
+            // tbPhone
             // 
-            this.textBox2.Location = new System.Drawing.Point(15, 124);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(217, 22);
-            this.textBox2.TabIndex = 23;
+            this.tbPhone.Location = new System.Drawing.Point(15, 124);
+            this.tbPhone.Name = "tbPhone";
+            this.tbPhone.Size = new System.Drawing.Size(279, 22);
+            this.tbPhone.TabIndex = 23;
             // 
-            // textBox3
+            // tbAddress
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 173);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(217, 22);
-            this.textBox3.TabIndex = 24;
+            this.tbAddress.Location = new System.Drawing.Point(15, 173);
+            this.tbAddress.Name = "tbAddress";
+            this.tbAddress.Size = new System.Drawing.Size(279, 22);
+            this.tbAddress.TabIndex = 24;
             // 
-            // button2
+            // btAddDepartment
             // 
-            this.button2.Location = new System.Drawing.Point(157, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Add";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btAddDepartment.Location = new System.Drawing.Point(144, 12);
+            this.btAddDepartment.Name = "btAddDepartment";
+            this.btAddDepartment.Size = new System.Drawing.Size(75, 23);
+            this.btAddDepartment.TabIndex = 25;
+            this.btAddDepartment.Text = "Add";
+            this.btAddDepartment.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.btRemoveDepartment.Location = new System.Drawing.Point(225, 12);
+            this.btRemoveDepartment.Name = "button1";
+            this.btRemoveDepartment.Size = new System.Drawing.Size(69, 23);
+            this.btRemoveDepartment.TabIndex = 26;
+            this.btRemoveDepartment.Text = "Remove";
+            this.btRemoveDepartment.UseVisualStyleBackColor = true;
             // 
             // EditDepartments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(249, 256);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
+            this.ClientSize = new System.Drawing.Size(306, 256);
+            this.Controls.Add(this.btRemoveDepartment);
+            this.Controls.Add(this.btAddDepartment);
+            this.Controls.Add(this.tbAddress);
+            this.Controls.Add(this.tbPhone);
+            this.Controls.Add(this.tbName);
+            this.Controls.Add(this.btOK);
+            this.Controls.Add(this.cbDepartments);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(322, 295);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(322, 295);
             this.Name = "EditDepartments";
             this.Text = "Edit departments";
             this.ResumeLayout(false);
@@ -143,14 +156,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Button btOK;
+        private System.Windows.Forms.ComboBox cbDepartments;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.TextBox tbPhone;
+        private System.Windows.Forms.TextBox tbAddress;
+        private System.Windows.Forms.Button btAddDepartment;
+        private System.Windows.Forms.Button btRemoveDepartment;
     }
 }

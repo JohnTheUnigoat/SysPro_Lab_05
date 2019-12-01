@@ -14,6 +14,8 @@ namespace SysPro_Lab_05
     {
         AddEditEmployee addEditEmployee;
 
+        EditDepartments editDepartments;
+
         BindingSource bs;
 
         public MainForm()
@@ -29,16 +31,25 @@ namespace SysPro_Lab_05
             Program.data.Employees.Add(new Employee("Katy", 26, 4500, Program.data.Departments[1]));
 
             addEditEmployee = new AddEditEmployee();
+            editDepartments = new EditDepartments();
 
             bs = new BindingSource();
 
-            bs.DataSource = Program.data.Employees;
+            bs.DataSource = Program.data.Employees.Where(employee => employee.Age >= 20);
 
             dgvEmpoyees.DataSource = bs;
 
             btAddEmployee.Click += btAddEmployeeClick;
             btEditEmployee.Click += btEditEmployeeClick;
             btRemoveEmployee.Click += btRemoveEmployeeClick;
+
+            btEditDepartments.Click += btEditDepartmentsClick;
+        }
+
+        private void btEditDepartmentsClick(object sender, EventArgs e)
+        {
+            editDepartments.ShowDialog();
+            bs.ResetBindings(false);
         }
 
         private void btRemoveEmployeeClick(object sender, EventArgs e)

@@ -32,7 +32,7 @@
             this.btAddEmployee = new System.Windows.Forms.Button();
             this.btEditEmployee = new System.Windows.Forms.Button();
             this.btRemoveEmployee = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.btEditDepartments = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpoyees)).BeginInit();
@@ -79,13 +79,13 @@
             // 
             // button4
             // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(321, 298);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(158, 90);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Edit departments";
-            this.button4.UseVisualStyleBackColor = true;
+            this.btEditDepartments.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditDepartments.Location = new System.Drawing.Point(321, 298);
+            this.btEditDepartments.Name = "button4";
+            this.btEditDepartments.Size = new System.Drawing.Size(158, 90);
+            this.btEditDepartments.TabIndex = 4;
+            this.btEditDepartments.Text = "Edit departments";
+            this.btEditDepartments.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -114,7 +114,7 @@
             this.ClientSize = new System.Drawing.Size(746, 400);
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
+            this.Controls.Add(this.btEditDepartments);
             this.Controls.Add(this.btRemoveEmployee);
             this.Controls.Add(this.btEditEmployee);
             this.Controls.Add(this.btAddEmployee);
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Button btAddEmployee;
         private System.Windows.Forms.Button btEditEmployee;
         private System.Windows.Forms.Button btRemoveEmployee;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button btEditDepartments;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
     }

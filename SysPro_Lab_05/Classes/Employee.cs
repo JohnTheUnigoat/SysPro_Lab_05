@@ -14,12 +14,31 @@ namespace SysPro_Lab_05
 
         public decimal Salary { get; set; }
 
-        public Department Department { get; set; }
+        private Department department;
+
+        public Department Department
+        {
+            get
+            {
+
+                if (department != null && department.IsRemoved())
+                    department = null;
+
+                return department;
+            }
+            set
+            {
+                department = value;
+            }
+        }
 
         public string DepartmentPhone
         {
             get
             {
+                if (department == null)
+                    return "";
+
                 return Department.PhoneNumber;
             }
         }
@@ -28,6 +47,9 @@ namespace SysPro_Lab_05
         {
             get
             {
+                if (department == null)
+                    return "";
+
                 return Department.Address;
             }
         }

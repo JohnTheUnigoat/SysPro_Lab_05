@@ -10,36 +10,34 @@ namespace SysPro_Lab_05
     {
         public string Name { get; set; }
 
-        private string phoneNumber;
-        public string PhoneNumber {
-            get
-            {
-                return phoneNumber;
-            }
-            set
-            {
-                if (value.Length != 10)
-                    throw new ArgumentException("A phone number should be exactly 10 digits long!");
-
-                if (!value.All(symbol => char.IsDigit(symbol)))
-                    throw new ArgumentException("A phone number can only contain digits!");
-
-                phoneNumber = value;
-            }
-        }
+        public string PhoneNumber { get; set; }
 
         public string Address { get; set; }
+
+        private bool isRemoved;
 
         public Department(string name, string phoneNumber, string address)
         {
             Name = name;
             PhoneNumber = phoneNumber;
             Address = address;
+
+            isRemoved = false;
+        }
+
+        public void MarkRemoved()
+        {
+            isRemoved = true;
+        }
+
+        public bool IsRemoved()
+        {
+            return isRemoved;
         }
 
         public override string ToString()
         {
-            return this.Name;
+            return Name;
         }
     }
 }
