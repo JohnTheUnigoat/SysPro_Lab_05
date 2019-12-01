@@ -36,5 +36,10 @@ namespace SysPro_Lab_05
             PhoneNumber = phoneNumber;
             Address = address;
         }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }
