@@ -31,7 +31,7 @@
             this.dgvEmpoyees = new System.Windows.Forms.DataGridView();
             this.btAddEmployee = new System.Windows.Forms.Button();
             this.btEditEmployee = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btRemoveEmployee = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
@@ -69,13 +69,13 @@
             // 
             // button3
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(12, 362);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(303, 26);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Remove employee";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btRemoveEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btRemoveEmployee.Location = new System.Drawing.Point(12, 362);
+            this.btRemoveEmployee.Name = "button3";
+            this.btRemoveEmployee.Size = new System.Drawing.Size(303, 26);
+            this.btRemoveEmployee.TabIndex = 3;
+            this.btRemoveEmployee.Text = "Remove employee";
+            this.btRemoveEmployee.UseVisualStyleBackColor = true;
             // 
             // button4
             // 
@@ -115,7 +115,7 @@
             this.Controls.Add(this.button6);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.btRemoveEmployee);
             this.Controls.Add(this.btEditEmployee);
             this.Controls.Add(this.btAddEmployee);
             this.Controls.Add(this.dgvEmpoyees);
@@ -135,7 +135,7 @@
         private System.Windows.Forms.DataGridView dgvEmpoyees;
         private System.Windows.Forms.Button btAddEmployee;
         private System.Windows.Forms.Button btEditEmployee;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btRemoveEmployee;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

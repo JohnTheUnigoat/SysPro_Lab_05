@@ -51,10 +51,10 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
             // 
-            // textBox1
+            // tbName
             // 
             this.tbName.Location = new System.Drawing.Point(20, 36);
-            this.tbName.Name = "textBox1";
+            this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(134, 22);
             this.tbName.TabIndex = 1;
             // 
@@ -88,7 +88,7 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Department";
             // 
-            // numericUpDown1
+            // numAge
             // 
             this.numAge.Location = new System.Drawing.Point(20, 84);
             this.numAge.Maximum = new decimal(new int[] {
@@ -96,11 +96,21 @@
             0,
             0,
             0});
-            this.numAge.Name = "numericUpDown1";
+            this.numAge.Minimum = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
+            this.numAge.Name = "numAge";
             this.numAge.Size = new System.Drawing.Size(134, 22);
             this.numAge.TabIndex = 8;
+            this.numAge.Value = new decimal(new int[] {
+            14,
+            0,
+            0,
+            0});
             // 
-            // numericUpDown2
+            // numSalary
             // 
             this.numSalary.DecimalPlaces = 2;
             this.numSalary.Increment = new decimal(new int[] {
@@ -114,23 +124,33 @@
             0,
             0,
             0});
-            this.numSalary.Name = "numericUpDown2";
+            this.numSalary.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numSalary.Name = "numSalary";
             this.numSalary.Size = new System.Drawing.Size(134, 22);
             this.numSalary.TabIndex = 9;
             this.numSalary.ThousandsSeparator = true;
+            this.numSalary.Value = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
             // 
-            // comboBox1
+            // cbDepartments
             // 
             this.cbDepartments.FormattingEnabled = true;
             this.cbDepartments.Location = new System.Drawing.Point(19, 182);
-            this.cbDepartments.Name = "comboBox1";
+            this.cbDepartments.Name = "cbDepartments";
             this.cbDepartments.Size = new System.Drawing.Size(135, 24);
             this.cbDepartments.TabIndex = 10;
             // 
-            // button1
+            // btOK
             // 
             this.btOK.Location = new System.Drawing.Point(19, 220);
-            this.btOK.Name = "button1";
+            this.btOK.Name = "btOK";
             this.btOK.Size = new System.Drawing.Size(135, 32);
             this.btOK.TabIndex = 11;
             this.btOK.Text = "OK";

@@ -14,13 +14,26 @@ namespace SysPro_Lab_05
     {
         public Employee WorkingEmployee { get; private set; }
 
+        BindingSource bsDepartments;
+
         public AddEditEmployee()
         {
             InitializeComponent();
 
-            cbDepartments.DataSource = Program.data.Departments;
+            bsDepartments = new BindingSource();
+
+            bsDepartments.DataSource = Program.data.Departments;
+
+            cbDepartments.DataSource = bsDepartments;
 
             btOK.Click += btOkClick;
+
+            Shown += OnShow;
+        }
+
+        private void OnShow(object sender, EventArgs e)
+        {
+            bsDepartments.ResetBindings(false);
         }
 
         private void btOkClick(object sender, EventArgs e)
@@ -51,9 +64,9 @@ namespace SysPro_Lab_05
             Text = "Add employee";
 
             tbName.Text = "";
-            numAge.Value = 0;
-            numSalary.Value = 0;
-            cbDepartments.SelectedIndex = 0;
+            numAge.Value = numAge.Minimum;
+            numSalary.Value = numSalary.Minimum;
+            //cbDepartments.SelectedIndex = 0;
 
             WorkingEmployee = null;
         }

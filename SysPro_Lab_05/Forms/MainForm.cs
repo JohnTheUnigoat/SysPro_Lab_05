@@ -38,10 +38,20 @@ namespace SysPro_Lab_05
 
             btAddEmployee.Click += btAddEmployeeClick;
             btEditEmployee.Click += btEditEmployeeClick;
+            btRemoveEmployee.Click += btRemoveEmployeeClick;
+        }
+
+        private void btRemoveEmployeeClick(object sender, EventArgs e)
+        {
+            if(bs.Current != null)
+                bs.RemoveCurrent();
         }
 
         private void btEditEmployeeClick(object sender, EventArgs e)
         {
+            if (bs.Current == null)
+                return;
+
             addEditEmployee.SetEdit(bs.Current as Employee);
 
             if(addEditEmployee.ShowDialog() == DialogResult.OK)
@@ -57,8 +67,6 @@ namespace SysPro_Lab_05
             if(addEditEmployee.ShowDialog() == DialogResult.OK)
             {
                 bs.Add(addEditEmployee.WorkingEmployee);
-                //Program.data.Employees.Add(addEditEmployee.WorkingEmployee);
-                //bs.ResetBindings(false);
             }
         }
     }
