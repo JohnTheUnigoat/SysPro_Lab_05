@@ -14,13 +14,13 @@ namespace SysPro_Lab_05
     {
         BindingSource bsDepartments;
 
-        public EditDepartments()
+        public EditDepartments(IEnumerable<Department> departments)
         {
             InitializeComponent();
 
             bsDepartments = new BindingSource();
 
-            bsDepartments.DataSource = Program.data.Departments;
+            bsDepartments.DataSource = departments;
 
             cbDepartments.DataSource = bsDepartments;
 

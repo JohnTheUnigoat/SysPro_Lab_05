@@ -12,9 +12,12 @@ namespace SysPro_Lab_05
 {
     public partial class MainForm : Form
     {
-        AddEditEmployee addEditEmployee;
+        Data data;
 
+        AddEditEmployee addEditEmployee;
         EditDepartments editDepartments;
+
+        IEnumerable<Employee> query;
 
         BindingSource bs;
 
@@ -22,20 +25,24 @@ namespace SysPro_Lab_05
         {
             InitializeComponent();
 
-            Program.data.Departments.Add(new Department("IT", "0503436617", "Le Street, 69"));
-            Program.data.Departments.Add(new Department("Management", "0203436247", "Le Street, 42"));
-            Program.data.Departments.Add(new Department("Accounting", "0203423427", "Le Street, 13"));
+            data = new Data();
 
-            Program.data.Employees.Add(new Employee("John", 19, 6500, Program.data.Departments[0]));
-            Program.data.Employees.Add(new Employee("Sam", 21, 6400, Program.data.Departments[0]));
-            Program.data.Employees.Add(new Employee("Katy", 26, 4500, Program.data.Departments[1]));
+            data.Departments.Add(new Department("IT", "0503436617", "Le Street, 69"));
+            data.Departments.Add(new Department("Management", "0203436247", "Le Street, 42"));
+            data.Departments.Add(new Department("Accounting", "0203423427", "Le Street, 13"));
 
-            addEditEmployee = new AddEditEmployee();
-            editDepartments = new EditDepartments();
+            data.Employees.Add(new Employee("John", 19, 6500, data.Departments[0]));
+            data.Employees.Add(new Employee("Sam", 21, 6400, data.Departments[0]));
+            data.Employees.Add(new Employee("Katy", 26, 4500, data.Departments[1]));
+
+            addEditEmployee = new AddEditEmployee(data.Departments);
+            editDepartments = new EditDepartments(data.Departments);
 
             bs = new BindingSource();
 
-            bs.DataSource = Program.data.Employees.Where(employee => employee.Age >= 20);
+            query = data.Employees;
+
+            bs.DataSource = query;
 
             dgvEmpoyees.DataSource = bs;
 
@@ -46,16 +53,18 @@ namespace SysPro_Lab_05
             btEditDepartments.Click += btEditDepartmentsClick;
         }
 
-        private void btEditDepartmentsClick(object sender, EventArgs e)
+        private void btAddEmployeeClick(object sender, EventArgs e)
         {
-            editDepartments.ShowDialog();
-            bs.ResetBindings(false);
-        }
+            addEditEmployee.SetAdd();
 
-        private void btRemoveEmployeeClick(object sender, EventArgs e)
-        {
-            if(bs.Current != null)
-                bs.RemoveCurrent();
+            if (addEditEmployee.ShowDialog() == DialogResult.OK)
+            {
+                data.Employees.Add(addEditEmployee.WorkingEmployee);
+
+                // Yeah, I don't like that too
+                bs.DataSource = null;
+                bs.DataSource = query;
+            }
         }
 
         private void btEditEmployeeClick(object sender, EventArgs e)
@@ -65,20 +74,22 @@ namespace SysPro_Lab_05
 
             addEditEmployee.SetEdit(bs.Current as Employee);
 
-            if(addEditEmployee.ShowDialog() == DialogResult.OK)
+            if (addEditEmployee.ShowDialog() == DialogResult.OK)
             {
                 bs.ResetBindings(false);
             }
         }
 
-        private void btAddEmployeeClick(object sender, EventArgs e)
+        private void btRemoveEmployeeClick(object sender, EventArgs e)
         {
-            addEditEmployee.SetAdd();
+            if (bs.Current != null)
+                bs.RemoveCurrent();
+        }
 
-            if(addEditEmployee.ShowDialog() == DialogResult.OK)
-            {
-                bs.Add(addEditEmployee.WorkingEmployee);
-            }
+        private void btEditDepartmentsClick(object sender, EventArgs e)
+        {
+            editDepartments.ShowDialog();
+            bs.ResetBindings(false);
         }
     }
 }

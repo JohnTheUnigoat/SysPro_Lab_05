@@ -20,7 +20,6 @@ namespace SysPro_Lab_05
         {
             get
             {
-
                 if (department != null && department.IsRemoved())
                     department = null;
 
