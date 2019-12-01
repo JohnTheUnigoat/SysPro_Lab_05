@@ -66,7 +66,6 @@ namespace SysPro_Lab_05
             tbName.Text = "";
             numAge.Value = numAge.Minimum;
             numSalary.Value = numSalary.Minimum;
-            //cbDepartments.SelectedIndex = 0;
 
             WorkingEmployee = null;
         }
@@ -81,6 +80,11 @@ namespace SysPro_Lab_05
             cbDepartments.SelectedItem = employee.Department;
 
             WorkingEmployee = employee;
+        }
+
+        public void SetBinding(IEnumerable<Department> departments)
+        {
+            bsDepartments.DataSource = departments;
         }
     }
 }

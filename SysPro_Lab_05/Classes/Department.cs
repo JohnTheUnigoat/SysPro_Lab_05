@@ -4,14 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace SysPro_Lab_05
 {
+    [DataContract(IsReference = true)]
     public class Department : IComparable
     {
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public string PhoneNumber { get; set; }
 
+        [DataMember]
         public string Address { get; set; }
 
         private bool isRemoved;

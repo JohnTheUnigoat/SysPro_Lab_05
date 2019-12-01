@@ -33,8 +33,8 @@
             this.btEditEmployee = new System.Windows.Forms.Button();
             this.btRemoveEmployee = new System.Windows.Forms.Button();
             this.btEditDepartments = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.btSaveData = new System.Windows.Forms.Button();
+            this.btLoadData = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpoyees)).BeginInit();
             this.SuspendLayout();
             // 
@@ -89,31 +89,31 @@
             // 
             // button5
             // 
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(486, 299);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(248, 40);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Save Data";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btSaveData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btSaveData.Location = new System.Drawing.Point(486, 299);
+            this.btSaveData.Name = "button5";
+            this.btSaveData.Size = new System.Drawing.Size(248, 40);
+            this.btSaveData.TabIndex = 5;
+            this.btSaveData.Text = "Save Data";
+            this.btSaveData.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(486, 348);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(248, 40);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Load Data";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btLoadData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btLoadData.Location = new System.Drawing.Point(486, 348);
+            this.btLoadData.Name = "button6";
+            this.btLoadData.Size = new System.Drawing.Size(248, 40);
+            this.btLoadData.TabIndex = 6;
+            this.btLoadData.Text = "Load Data";
+            this.btLoadData.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(746, 400);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btLoadData);
+            this.Controls.Add(this.btSaveData);
             this.Controls.Add(this.btEditDepartments);
             this.Controls.Add(this.btRemoveEmployee);
             this.Controls.Add(this.btEditEmployee);
@@ -137,8 +137,8 @@
         private System.Windows.Forms.Button btEditEmployee;
         private System.Windows.Forms.Button btRemoveEmployee;
         private System.Windows.Forms.Button btEditDepartments;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button btSaveData;
+        private System.Windows.Forms.Button btLoadData;
     }
 }
 

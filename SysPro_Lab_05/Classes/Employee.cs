@@ -4,16 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using System.Runtime.Serialization;
+
 namespace SysPro_Lab_05
 {
+    [DataContract]
     public class Employee
     {
+        [DataMember]
         public string Name { get; set; }
 
+        [DataMember]
         public int Age { get; set; }
 
+        [DataMember]
         public decimal Salary { get; set; }
 
+        [DataMember]
         private Department department;
 
         public Department Department

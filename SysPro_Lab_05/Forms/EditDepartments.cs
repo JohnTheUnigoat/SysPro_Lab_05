@@ -53,5 +53,10 @@ namespace SysPro_Lab_05
         {
             Close();
         }
+
+        public void SetBinding(IEnumerable<Department> departments)
+        {
+            bsDepartments.DataSource = departments;
+        }
     }
 }

@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using System.IO;
+using System.Runtime.Serialization;
+
 namespace SysPro_Lab_05
 {
     public partial class MainForm : Form
@@ -27,14 +30,6 @@ namespace SysPro_Lab_05
 
             data = new Data();
 
-            data.Departments.Add(new Department("IT", "0503436617", "Le Street, 69"));
-            data.Departments.Add(new Department("Management", "0203436247", "Le Street, 42"));
-            data.Departments.Add(new Department("Accounting", "0203423427", "Le Street, 13"));
-
-            data.Employees.Add(new Employee("John", 19, 6500, data.Departments[0]));
-            data.Employees.Add(new Employee("Sam", 21, 6400, data.Departments[0]));
-            data.Employees.Add(new Employee("Katy", 26, 4500, data.Departments[1]));
-
             addEditEmployee = new AddEditEmployee(data.Departments);
             editDepartments = new EditDepartments(data.Departments);
 
@@ -53,6 +48,9 @@ namespace SysPro_Lab_05
             btEditDepartments.Click += btEditDepartmentsClick;
 
             dgvEmpoyees.ColumnHeaderMouseClick += dgvEmpoyeesHeaderClick;
+
+            btSaveData.Click += btSaveDataClick;
+            btLoadData.Click += btLoadDataClick;
         }
 
         private void btAddEmployeeClick(object sender, EventArgs e)
@@ -125,6 +123,46 @@ namespace SysPro_Lab_05
 
             bs.DataSource = null;
             bs.DataSource = query;
+        }
+
+        private void btSaveDataClick(object sender, EventArgs e)
+        {
+            var saveFile = new SaveFileDialog();
+            saveFile.Filter = "XML files|*.xml";
+
+            if (saveFile.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = saveFile.FileName;
+
+                using (var stream = File.Create(fileName))
+                {
+                    var serializer = new DataContractSerializer(typeof(Data));
+                    serializer.WriteObject(stream, data);
+                }
+            }
+        }
+
+        private void btLoadDataClick(object sender, EventArgs e)
+        {
+            var openFile = new OpenFileDialog();
+            openFile.Filter = "XML files|*.xml";
+
+            if (openFile.ShowDialog() == DialogResult.OK)
+            {
+                string fileName = openFile.FileName;
+
+                using (var stream = File.OpenRead(fileName))
+                {
+                    var serializer = new DataContractSerializer(typeof(Data));
+                    data = serializer.ReadObject(stream) as Data;
+                    query = data.Employees;
+
+                    bs.DataSource = query;
+
+                    addEditEmployee.SetBinding(data.Departments);
+                    editDepartments.SetBinding(data.Departments);
+                }
+            }
         }
     }
 }
