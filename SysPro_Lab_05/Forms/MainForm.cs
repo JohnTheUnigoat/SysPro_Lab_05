@@ -51,6 +51,8 @@ namespace SysPro_Lab_05
             btRemoveEmployee.Click += btRemoveEmployeeClick;
 
             btEditDepartments.Click += btEditDepartmentsClick;
+
+            dgvEmpoyees.ColumnHeaderMouseClick += dgvEmpoyeesHeaderClick;
         }
 
         private void btAddEmployeeClick(object sender, EventArgs e)
@@ -90,6 +92,39 @@ namespace SysPro_Lab_05
         {
             editDepartments.ShowDialog();
             bs.ResetBindings(false);
+        }
+
+        private void dgvEmpoyeesHeaderClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            SortQueryBy(e.ColumnIndex);
+        }
+
+        private void SortQueryBy(int columnIndex)
+        {
+            switch (columnIndex)
+            {
+                case 0:
+                    query = data.Employees.OrderBy(employee => employee.Name);
+                    break;
+                case 1:
+                    query = data.Employees.OrderBy(employee => employee.Age);
+                    break;
+                case 2:
+                    query = data.Employees.OrderBy(employee => employee.Salary);
+                    break;
+                case 3:
+                    query = data.Employees.OrderBy(employee => employee.Department);
+                    break;
+                case 4:
+                    query = data.Employees.OrderBy(employee => employee.DepartmentPhone);
+                    break;
+                case 5:
+                    query = data.Employees.OrderBy(employee => employee.DepartmentAdress);
+                    break;
+            }
+
+            bs.DataSource = null;
+            bs.DataSource = query;
         }
     }
 }

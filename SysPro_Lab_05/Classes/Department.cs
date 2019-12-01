@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SysPro_Lab_05
 {
-    public class Department
+    public class Department : IComparable
     {
         public string Name { get; set; }
 
@@ -38,6 +38,11 @@ namespace SysPro_Lab_05
         public override string ToString()
         {
             return Name;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return Name.CompareTo((obj as Department).Name);
         }
     }
 }
