@@ -12,9 +12,43 @@ namespace SysPro_Lab_05
 {
     public partial class MainForm : Form
     {
+        AddEditEmployee addEditEmployee;
+
+        BindingSource bs;
+
         public MainForm()
         {
             InitializeComponent();
+
+
+            Program.data.Departments.Add(new Department("IT", "0503436617", "Le Street, 69"));
+            Program.data.Departments.Add(new Department("Management", "0203436247", "Le Street, 42"));
+            Program.data.Departments.Add(new Department("Accounting", "0203423427", "Le Street, 13"));
+
+            Program.data.Employees.Add(new Employee("John", 19, 6500, Program.data.Departments[0]));
+            Program.data.Employees.Add(new Employee("Sam", 21, 6400, Program.data.Departments[0]));
+            Program.data.Employees.Add(new Employee("Katy", 26, 4500, Program.data.Departments[1]));
+
+            addEditEmployee = new AddEditEmployee();
+
+            bs = new BindingSource();
+
+            bs.DataSource = Program.data.Employees;
+
+            dgvEmpoyees.DataSource = bs;
+
+            btAddEmployee.Click += btAddEmployeeClick;
+        }
+
+        private void btAddEmployeeClick(object sender, EventArgs e)
+        {
+            addEditEmployee.SetAdd();
+
+            if(addEditEmployee.ShowDialog() == DialogResult.OK)
+            {
+                Program.data.Employees.Add(addEditEmployee.WorkingEmployee);
+                bs.ResetBindings(false);
+            }
         }
     }
 }

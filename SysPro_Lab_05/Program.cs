@@ -17,6 +17,7 @@ namespace SysPro_Lab_05
         // по кожному полю по зростанню і зменшенням.Реалізувати можливість
         // накладення фільтра, що дозволяє виводити список співробітників тільки одного підрозділу.
 
+        public static Data data = new Data();
 
         /// <summary>
         /// The main entry point for the application.

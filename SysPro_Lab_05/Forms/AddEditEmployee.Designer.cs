@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            this.numAge = new System.Windows.Forms.NumericUpDown();
+            this.numSalary = new System.Windows.Forms.NumericUpDown();
+            this.cbDepartments = new System.Windows.Forms.ComboBox();
+            this.btOK = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -53,10 +53,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(20, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(134, 22);
-            this.textBox1.TabIndex = 1;
+            this.tbName.Location = new System.Drawing.Point(20, 36);
+            this.tbName.Name = "textBox1";
+            this.tbName.Size = new System.Drawing.Size(134, 22);
+            this.tbName.TabIndex = 1;
             // 
             // label2
             // 
@@ -90,65 +90,65 @@
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(20, 84);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numAge.Location = new System.Drawing.Point(20, 84);
+            this.numAge.Maximum = new decimal(new int[] {
             130,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(134, 22);
-            this.numericUpDown1.TabIndex = 8;
+            this.numAge.Name = "numericUpDown1";
+            this.numAge.Size = new System.Drawing.Size(134, 22);
+            this.numAge.TabIndex = 8;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.DecimalPlaces = 2;
-            this.numericUpDown2.Increment = new decimal(new int[] {
+            this.numSalary.DecimalPlaces = 2;
+            this.numSalary.Increment = new decimal(new int[] {
             500,
             0,
             0,
             0});
-            this.numericUpDown2.Location = new System.Drawing.Point(20, 133);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numSalary.Location = new System.Drawing.Point(20, 133);
+            this.numSalary.Maximum = new decimal(new int[] {
             69420,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(134, 22);
-            this.numericUpDown2.TabIndex = 9;
-            this.numericUpDown2.ThousandsSeparator = true;
+            this.numSalary.Name = "numericUpDown2";
+            this.numSalary.Size = new System.Drawing.Size(134, 22);
+            this.numSalary.TabIndex = 9;
+            this.numSalary.ThousandsSeparator = true;
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(19, 182);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(135, 24);
-            this.comboBox1.TabIndex = 10;
+            this.cbDepartments.FormattingEnabled = true;
+            this.cbDepartments.Location = new System.Drawing.Point(19, 182);
+            this.cbDepartments.Name = "comboBox1";
+            this.cbDepartments.Size = new System.Drawing.Size(135, 24);
+            this.cbDepartments.TabIndex = 10;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(19, 220);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 32);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btOK.Location = new System.Drawing.Point(19, 220);
+            this.btOK.Name = "button1";
+            this.btOK.Size = new System.Drawing.Size(135, 32);
+            this.btOK.TabIndex = 11;
+            this.btOK.Text = "OK";
+            this.btOK.UseVisualStyleBackColor = true;
             // 
             // AddEditEmployee
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(172, 264);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.btOK);
+            this.Controls.Add(this.cbDepartments);
+            this.Controls.Add(this.numSalary);
+            this.Controls.Add(this.numAge);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbName);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -158,8 +158,8 @@
             this.MinimumSize = new System.Drawing.Size(188, 303);
             this.Name = "AddEditEmployee";
             this.Text = "AddEditEmployee";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAge)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numSalary)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -168,13 +168,13 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.NumericUpDown numAge;
+        private System.Windows.Forms.NumericUpDown numSalary;
+        private System.Windows.Forms.ComboBox cbDepartments;
+        private System.Windows.Forms.Button btOK;
     }
 }

@@ -47,5 +47,7 @@ namespace SysPro_Lab_05
             Salary = salary;
             this.department = department;
         }
+
+        public Department GetDepartment() { return department; }
     }
 }
