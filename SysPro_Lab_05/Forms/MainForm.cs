@@ -20,7 +20,6 @@ namespace SysPro_Lab_05
         {
             InitializeComponent();
 
-
             Program.data.Departments.Add(new Department("IT", "0503436617", "Le Street, 69"));
             Program.data.Departments.Add(new Department("Management", "0203436247", "Le Street, 42"));
             Program.data.Departments.Add(new Department("Accounting", "0203423427", "Le Street, 13"));
@@ -38,6 +37,17 @@ namespace SysPro_Lab_05
             dgvEmpoyees.DataSource = bs;
 
             btAddEmployee.Click += btAddEmployeeClick;
+            btEditEmployee.Click += btEditEmployeeClick;
+        }
+
+        private void btEditEmployeeClick(object sender, EventArgs e)
+        {
+            addEditEmployee.SetEdit(bs.Current as Employee);
+
+            if(addEditEmployee.ShowDialog() == DialogResult.OK)
+            {
+                bs.ResetBindings(false);
+            }
         }
 
         private void btAddEmployeeClick(object sender, EventArgs e)
@@ -46,8 +56,9 @@ namespace SysPro_Lab_05
 
             if(addEditEmployee.ShowDialog() == DialogResult.OK)
             {
-                Program.data.Employees.Add(addEditEmployee.WorkingEmployee);
-                bs.ResetBindings(false);
+                bs.Add(addEditEmployee.WorkingEmployee);
+                //Program.data.Employees.Add(addEditEmployee.WorkingEmployee);
+                //bs.ResetBindings(false);
             }
         }
     }

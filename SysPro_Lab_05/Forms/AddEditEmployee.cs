@@ -34,6 +34,13 @@ namespace SysPro_Lab_05
                     cbDepartments.SelectedItem as Department
                     );
             }
+            else
+            {
+                WorkingEmployee.Name = tbName.Text;
+                WorkingEmployee.Age = (int)numAge.Value;
+                WorkingEmployee.Salary = numSalary.Value;
+                WorkingEmployee.Department = cbDepartments.SelectedItem as Department;
+            }
 
             DialogResult = DialogResult.OK;
             Close();
@@ -51,5 +58,16 @@ namespace SysPro_Lab_05
             WorkingEmployee = null;
         }
 
+        public void SetEdit(Employee employee)
+        {
+            Text = "Edit employee";
+
+            tbName.Text = employee.Name;
+            numAge.Value = employee.Age;
+            numSalary.Value = employee.Salary;
+            cbDepartments.SelectedItem = employee.Department;
+
+            WorkingEmployee = employee;
+        }
     }
 }

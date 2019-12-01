@@ -30,7 +30,7 @@
         {
             this.dgvEmpoyees = new System.Windows.Forms.DataGridView();
             this.btAddEmployee = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btEditEmployee = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -59,13 +59,13 @@
             // 
             // button2
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(12, 330);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(303, 26);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Edit employee";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btEditEmployee.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEditEmployee.Location = new System.Drawing.Point(12, 330);
+            this.btEditEmployee.Name = "button2";
+            this.btEditEmployee.Size = new System.Drawing.Size(303, 26);
+            this.btEditEmployee.TabIndex = 2;
+            this.btEditEmployee.Text = "Edit employee";
+            this.btEditEmployee.UseVisualStyleBackColor = true;
             // 
             // button3
             // 
@@ -116,7 +116,7 @@
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btEditEmployee);
             this.Controls.Add(this.btAddEmployee);
             this.Controls.Add(this.dgvEmpoyees);
             this.MaximizeBox = false;
@@ -134,7 +134,7 @@
 
         private System.Windows.Forms.DataGridView dgvEmpoyees;
         private System.Windows.Forms.Button btAddEmployee;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btEditEmployee;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;

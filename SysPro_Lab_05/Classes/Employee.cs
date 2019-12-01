@@ -14,21 +14,13 @@ namespace SysPro_Lab_05
 
         public decimal Salary { get; set; }
 
-        private Department department;
-
-        public string DepartmentName
-        {
-            get
-            {
-                return department.Name;
-            }
-        }
+        public Department Department { get; set; }
 
         public string DepartmentPhone
         {
             get
             {
-                return department.PhoneNumber;
+                return Department.PhoneNumber;
             }
         }
 
@@ -36,7 +28,7 @@ namespace SysPro_Lab_05
         {
             get
             {
-                return department.Address;
+                return Department.Address;
             }
         }
 
@@ -45,9 +37,7 @@ namespace SysPro_Lab_05
             Name = name;
             Age = age;
             Salary = salary;
-            this.department = department;
+            Department = department;
         }
-
-        public Department GetDepartment() { return department; }
     }
 }
