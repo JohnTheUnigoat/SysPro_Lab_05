@@ -17,7 +17,13 @@ namespace SysPro_Lab_05
 
         IEnumerable<Employee> query;
 
-        BindingSource bs;
+        //string selectedDepartment;
+
+        bool isOrdered = false;
+        int orderIndex;
+
+        BindingSource bsEmployeeQuery;
+        BindingSource bsDepartmentOptions;
 
         public MainForm()
         {
@@ -28,13 +34,18 @@ namespace SysPro_Lab_05
             addEditEmployee = new AddEditEmployee(data.Departments);
             editDepartments = new EditDepartments(data.Departments);
 
-            bs = new BindingSource();
+            bsEmployeeQuery = new BindingSource();
+            bsDepartmentOptions = new BindingSource();
 
             query = data.Employees;
 
-            bs.DataSource = query;
+            bsEmployeeQuery.DataSource = query;
+            bsDepartmentOptions.DataSource = data.DepartmentFilterOptions;
 
-            dgvEmpoyees.DataSource = bs;
+            dgvEmpoyees.DataSource = bsEmployeeQuery;
+
+            cbDepartmentFilter.DataSource = bsDepartmentOptions;
+            cbDepartmentFilter.SelectedIndexChanged += cbDepartmentFilterChanged;
 
             btAddEmployee.Click += btAddEmployeeClick;
             btEditEmployee.Click += btEditEmployeeClick;
@@ -42,10 +53,40 @@ namespace SysPro_Lab_05
 
             btEditDepartments.Click += btEditDepartmentsClick;
 
+            btResetSorting.Click += btResetSortingclick;
+
             dgvEmpoyees.ColumnHeaderMouseClick += dgvEmpoyeesHeaderClick;
 
             btSaveData.Click += btSaveDataClick;
             btLoadData.Click += btLoadDataClick;
+        }
+
+        private void cbDepartmentFilterChanged(object sender, EventArgs e)
+        {
+            var selectedDepartment = (string)cbDepartmentFilter.SelectedItem;
+
+            if (selectedDepartment == "All departments")
+            {
+                query = data.Employees;
+            }
+            else
+            {
+                query = data.Employees.Where(employee => employee.Department.Name == selectedDepartment);
+            }
+
+            if(isOrdered)
+                SortQuery();
+
+            bsEmployeeQuery.DataSource = query;
+        }
+
+        private void btResetSortingclick(object sender, EventArgs e)
+        {
+            isOrdered = false;
+
+            query = data.Employees;
+
+            bsEmployeeQuery.DataSource = query;
         }
 
         private void btAddEmployeeClick(object sender, EventArgs e)
@@ -57,67 +98,68 @@ namespace SysPro_Lab_05
                 data.Employees.Add(addEditEmployee.WorkingEmployee);
 
                 // Yeah, I don't like that too
-                bs.DataSource = null;
-                bs.DataSource = query;
+                bsEmployeeQuery.DataSource = null;
+                bsEmployeeQuery.DataSource = query;
             }
         }
 
         private void btEditEmployeeClick(object sender, EventArgs e)
         {
-            if (bs.Current == null)
+            if (bsEmployeeQuery.Current == null)
                 return;
 
-            addEditEmployee.SetEdit(bs.Current as Employee);
+            addEditEmployee.SetEdit(bsEmployeeQuery.Current as Employee);
 
             if (addEditEmployee.ShowDialog() == DialogResult.OK)
             {
-                bs.ResetBindings(false);
+                bsEmployeeQuery.ResetBindings(false);
             }
         }
 
         private void btRemoveEmployeeClick(object sender, EventArgs e)
         {
-            if (bs.Current != null)
-                bs.RemoveCurrent();
+            if (bsEmployeeQuery.Current != null)
+                bsEmployeeQuery.RemoveCurrent();
         }
 
         private void btEditDepartmentsClick(object sender, EventArgs e)
         {
             editDepartments.ShowDialog();
-            bs.ResetBindings(false);
+            bsEmployeeQuery.ResetBindings(false);
         }
 
         private void dgvEmpoyeesHeaderClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            SortQueryBy(e.ColumnIndex);
+            orderIndex = e.ColumnIndex;
+            isOrdered = true;
+            SortQuery();
         }
 
-        private void SortQueryBy(int columnIndex)
+        private void SortQuery()
         {
-            switch (columnIndex)
+            switch (orderIndex)
             {
                 case 0:
-                    query = data.Employees.OrderBy(employee => employee.Name);
+                    query = query.OrderBy(employee => employee.Name);
                     break;
                 case 1:
-                    query = data.Employees.OrderBy(employee => employee.Age);
+                    query = query.OrderBy(employee => employee.Age);
                     break;
                 case 2:
-                    query = data.Employees.OrderBy(employee => employee.Salary);
+                    query = query.OrderBy(employee => employee.Salary);
                     break;
                 case 3:
-                    query = data.Employees.OrderBy(employee => employee.Department);
+                    query = query.OrderBy(employee => employee.Department);
                     break;
                 case 4:
-                    query = data.Employees.OrderBy(employee => employee.DepartmentPhone);
+                    query = query.OrderBy(employee => employee.DepartmentPhone);
                     break;
                 case 5:
-                    query = data.Employees.OrderBy(employee => employee.DepartmentAdress);
+                    query = query.OrderBy(employee => employee.DepartmentAdress);
                     break;
             }
 
-            bs.DataSource = null;
-            bs.DataSource = query;
+            bsEmployeeQuery.DataSource = query;
         }
 
         private void btSaveDataClick(object sender, EventArgs e)
@@ -152,7 +194,8 @@ namespace SysPro_Lab_05
                     data = serializer.ReadObject(stream) as Data;
                     query = data.Employees;
 
-                    bs.DataSource = query;
+                    bsEmployeeQuery.DataSource = query;
+                    bsDepartmentOptions.DataSource = data.DepartmentFilterOptions;
 
                     addEditEmployee.SetBinding(data.Departments);
                     editDepartments.SetBinding(data.Departments);
